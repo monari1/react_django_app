@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo',
+    'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +102,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# whitelist React Port 
+CORS_ORIGIN_WHITELIST = (
+    'https://localhost:3000/'
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
