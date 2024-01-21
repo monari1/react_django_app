@@ -56,6 +56,44 @@ class App extends React.Component
       )
 
     }
+    renderItems =() => {
+      const {viewCompleted} = this.state;
+      const newItems = this.state.taskList.filter(
+        item => item.completed === viewCompleted
+      );
+      return newItems.map(item => (
+        <li key = {item.id} className='list-group-item d-flex justify-content-between align-items-center'
+        >
+          <span className={`todo-title mr-2 ${this.state.viewCompleted ? "completed-todo" : ""}`}></span>
+        </li>
+      ))
+    
+    }
+
+  
+    render(){
+      return (
+        <div>
+          <main className='context'>
+            <h1 className='text-black text-uppercase text-center m-4'> Task Manager </h1>
+            <h1 className='row'>
+              <div className='col-md-6 col-sm-10 mx-auto p-0'>
+                <div className='card p-3'> 
+                <div>
+                  <button className='btn btn-warning'>Add Task</button>
+                </div>
+                {this.rennderTabList()}
+                <ul className='list-group list-group-flush'>
+                  {this.renderItems()}
+                </ul>
+                </div>
+              </div>
+            </h1>
+          </main>
+        </div>
+      )
+    }
+
 
 }
 
