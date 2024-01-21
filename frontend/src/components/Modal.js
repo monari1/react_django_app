@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {
     Button, 
     Modal,
@@ -19,15 +19,17 @@ class CustomModal extends React.Component {
         }
     };
     // to check whether check box is checked
-    handleChange = e => {
-
-        let{name, value} = e.target;
-        if (e.target.type){
-            value = e.target.checked
+    handleChange = (e) => {
+        let { name, value } = e.target;
+      
+        if (e.target.type === 'checkbox') {
+          value = e.target.checked;
         }
-        const activeItem = {...this.state.activeItem, [name]: value}
-        this.setState({activeItem: activeItem})
-    }
+      
+        const activeItem = { ...this.state.activeItem, [name]: value };
+        this.setState({ activeItem: activeItem });
+      };
+      
     render() {
         const {toggle, onSave} = this.props
         return (
